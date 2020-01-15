@@ -5,5 +5,6 @@
     "noImplicitThis": true,
     "noImplicitReturns": true,
     "strict": true
-  }
+  },
+  "exclude": ["node_modules"]
 }
