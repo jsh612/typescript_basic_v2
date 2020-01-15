@@ -68,6 +68,12 @@ function computerChoice(imgCoords: RSP[keyof RSP]) {
 document.querySelectorAll(".btn").forEach(btn => {
   btn.addEventListener("click", function(this: HTMLButtonElement) {
     //this 값을 명시적으로 넣어 줘야한다.
+
+    clearInterval(interval); // setInterval 중지
+    setTimeout(() => {
+      intervalMaker();
+    }, 1000);
+
     const myChoice = this.textContent as keyof RSP; //as 활용하여 값의 범위를 좁혀준다.
     const myScore = score[myChoice];
     const computerScore = score[computerChoice(imgCoords)!]; //느낌표 사용: undefined, null이 아님을 개발자가 보장
@@ -81,3 +87,13 @@ document.querySelectorAll(".btn").forEach(btn => {
     }
   });
 });
+
+let start = 3;
+const interval2 = setInterval(function() {
+  if (start === 0) {
+    console.log("종료!!!");
+    return clearInterval(interval2);
+  }
+  console.log(start);
+  start -= 1;
+}, 1000);
