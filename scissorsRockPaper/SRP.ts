@@ -37,8 +37,10 @@ const score = {
   PAPER: -1
 } as const; // 상수화시키기
 
-function computerChoice(imgCoords): keyof RSP {
-  return Object.keys(rsp).find(key => rsp[key] === imgCoords);
+function computerChoice(imgCoords: RSP[keyof RSP]) {
+  return (Object.keys(rsp) as ["ROCK", "SCISSORS", "PAPER"]).find(
+    key => rsp[key] === imgCoords
+  );
 }
 
 document.querySelectorAll(".btn").forEach(btn => {
