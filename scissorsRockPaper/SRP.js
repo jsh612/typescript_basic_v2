@@ -1,3 +1,4 @@
+"use strict";
 // 1. type alias로 작성시
 // type RSP = {
 //   ROCK: "0";
@@ -82,3 +83,5 @@ var interval2 = setInterval(function () {
     console.log(start);
     start -= 1;
 }, 1000);
+// tsconfig.json 무시되는 오류 해결
+// https://stackoverflow.com/questions/39399057/why-is-the-typescript-compiler-ignoring-tsconfig-json
