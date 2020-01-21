@@ -5,7 +5,8 @@
     "noImplicitThis": true,
     "noImplicitReturns": true,
     "strict": true,
-    "lib": ["es2020", "DOM"]
+    "lib": ["es6", "es2020", "DOM"],
+    "experimentalDecorators": true
   },
   "exclude": ["node_modules"]
 }

@@ -1,4 +1,4 @@
-/* 
+/*
 
 # 배열
 
@@ -11,7 +11,7 @@ arr = ["a", "b"];
 let tupleArr: [number, string] = [1, "a"];
 tupleArr = [100, "b"];
 
-/* 
+/*
 
  # 상수화 시키기
 
@@ -20,11 +20,9 @@ tupleArr = [100, "b"];
 const constObj = { a: 1 } as const;
 // constObj.a = 2; // 불가
 
-/* 
-
+/*
 
   # 제네릭 https://www.typescriptlang.org/docs/handbook/generics.html
-
 
  */
 
@@ -69,9 +67,69 @@ const d: contrainObj<number> = {
 const abc = <T>(a: T): T => a;
 abc<number>(5);
 
-//--------------------------------
-/* 
+//=============================================================
 
-=============================================================
+/*
+
+  # 나머지 추가적인 타입들
 
  */
+
+//1. intersection 과 union
+
+interface A {
+  hello: true;
+}
+interface B {
+  bye: true;
+}
+
+const interC: A & B = {
+  // A와 B를 모두 충족 시켜야한다.
+  hello: true,
+  bye: true
+};
+
+const unionC: A | B = {
+  hello: true
+};
+
+//2. Utility Types
+//  1) partial
+interface IparA {
+  a: "a";
+  c: true;
+}
+
+const parA: Partial<IparA> = {
+  // IparA의 일부분만 사용가능
+  a: "a"
+};
+
+//3. Decorators
+function makeGender(target: typeof Person) {
+  console.log("hello");
+  return class extends target {
+    gender = "female";
+  };
+}
+
+@makeGender
+class Person {
+  title: string;
+  age = 27;
+  constructor(name: string) {
+    this.title = name;
+  }
+  setTitle(title: string) {
+    this.title = name;
+  }
+  sayTitle(): any {
+    return this.title;
+  }
+}
+
+const newPerson = new Person("jsh");
+console.log(newPerson.gender);
+// 위의 오류
+// https://stackoverflow.com/questions/54813329/adding-properties-to-a-class-via-decorators-in-typescript
