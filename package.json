@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "can-use-dom": "^0.1.0",
     "typescript": "^3.7.4"
   }
 }

@@ -11,6 +11,14 @@ arr = ["a", "b"];
 let tupleArr: [number, string] = [1, "a"];
 tupleArr = [100, "b"];
 
+//3. Function
+let myAdd = (x: number, y: number): number => {
+  return x + y;
+};
+let myAdd2: (baseValue: number, increment: number) => number = (x, y) => {
+  return x + y;
+};
+
 /*
 
  # 상수화 시키기
@@ -133,3 +141,12 @@ const newPerson = new Person("jsh");
 console.log(newPerson.gender);
 // 위의 오류
 // https://stackoverflow.com/questions/54813329/adding-properties-to-a-class-via-decorators-in-typescript
+
+//=============================================================
+
+/*
+
+  # Definitely Typed에 없는 패키지 사용시
+
+ */
+import * as A from "can-use-dom";
